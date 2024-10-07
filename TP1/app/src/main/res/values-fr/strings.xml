@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">HelloWorldActivity</string>
+    <string name="quit">Quitter</string>
+    <string name="hello_world">Bonjour le monde!</string>
+    <string name="let_s_quit_the_activity">Quittons l\'activité</string>
+    <string name="creation">Ouverture de application</string>
+    <string name="leaving_application">fermeture de l\'application</string>
+    <string name="found_it_was">Trouvé! la ville était :</string>
+    <string name="nearest_city">"Ville la plus proche : "</string>
+</resources>

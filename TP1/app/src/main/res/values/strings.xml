@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">HelloWorldActivity</string>
+    <string name="hello_world">hello world!</string>
+    <string name="quit">Quit</string>
+    <string name="let_s_quit_the_activity">Let\'s quit the activity</string>
+    <string name="creation">Open the application</string>
+    <string name="leaving_application">Leaving Application</string>
+    <string name="found_it_was">"Found! it was : "</string>
+    <string name="nearest_city">"Nearest City : "</string>
+</resources>
