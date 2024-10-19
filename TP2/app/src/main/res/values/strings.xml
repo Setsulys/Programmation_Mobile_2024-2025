@@ -3,4 +3,8 @@
     <string name="solution">Solution</string>
     <string name="draw_new">Draw New</string>
     <string name="cancel">Cancel</string>
+    <string name="finded">FINDED</string>
+    <string name="goal">"Goal : "</string>
+    <string name="you_lose">YOU LOSE</string>
+    <string name="nothing_found">Nothing Found</string>
 </resources>

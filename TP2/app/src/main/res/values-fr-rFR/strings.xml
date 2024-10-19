@@ -4,4 +4,8 @@
     <string name="draw_new">Nouveau Tirage</string>
     <string name="cancel">Annuler</string>
     <string name="solution">Solution</string>
+    <string name="finded">Trouvé</string>
+    <string name="goal">But :</string>
+    <string name="you_lose">Perdu</string>
+    <string name="nothing_found">Pas de Résultat</string>
 </resources>
