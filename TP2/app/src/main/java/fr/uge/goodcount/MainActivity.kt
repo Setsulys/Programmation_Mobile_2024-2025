@@ -178,7 +178,13 @@ class MainActivity : AppCompatActivity() {
                     operator = previousCancel[previousCancel.size -1].value
                     removeLastOccurence("="+checkOperator(operande1,previous.value)+"\n")
                     operande2=""
+                    findViewById<Button>(previousCancel[previousCancel.size -2].button).isEnabled=false
                     removeLastOccurence(previous.value)
+                    if(operande1.toInt()-previous.value.toInt() < 0){
+                        removeLastOccurence(operande1)
+                        removeLastOccurence(operator)
+                        stringRes+=operande1+operator
+                    }
                     hiddedButtons.remove(previous.button)
                     findViewById<Button>(previous.button).isEnabled=true
                     findViewById<Button>(previous.button).setText(previous.value)
