@@ -56,6 +56,7 @@ class MainActivity : AppCompatActivity() {
             opButton.forEach { e-> findViewById<Button>(e).isEnabled=false }
             nbButtons.forEach { e-> findViewById<Button>(e).isEnabled=true}
             hiddedButtons.clear()
+            previousCancel.clear()
             stringRes=""
             findViewById<TextView>(R.id.calculs).text = stringRes
         }
