@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Le compte est bon</string>
+    <string name="draw_new">Nouveau Tirage</string>
+    <string name="cancel">Annuler</string>
+    <string name="solution">Solution</string>
+</resources>

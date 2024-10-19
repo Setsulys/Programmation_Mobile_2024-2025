@@ -41,21 +41,21 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="drawNew"
-            android:text="Draw New" />
+            android:text="@string/draw_new" />
 
         <Button
             android:id="@+id/Cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Cancel" />
+            android:text="@string/cancel" />
 
         <Button
             android:id="@+id/Solution"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Solution" />
+            android:text="@string/solution" />
     </LinearLayout>
 
     <LinearLayout
@@ -147,7 +147,7 @@
         app:layout_constraintTop_toBottomOf="@+id/plateLayout2">
 
         <Button
-            android:id="@+id/button13"
+            android:id="@+id/ButtonAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -155,7 +155,7 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/button14"
+            android:id="@+id/ButtonMinus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -163,7 +163,7 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/button15"
+            android:id="@+id/ButtonProduct"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -171,7 +171,7 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/button16"
+            android:id="@+id/ButtonDivide"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
