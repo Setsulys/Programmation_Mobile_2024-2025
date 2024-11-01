@@ -1,9 +1,8 @@
 package fr.uge.worldiscovery.countries
 
 import androidx.compose.runtime.Composable
-import fr.uge.worldiscovery.unitedArabEmiratesFlag
 
-object UAE: Country(
+data object UAE: Country(
     "United Arab Emirates",
     10032213,
     83600f,
@@ -11,6 +10,6 @@ object UAE: Country(
     2.71f,
     2.46886007E11f,
     3.35238005E11f,
-    @Composable{ unitedArabEmiratesFlag() }
+    @Composable{ UnitedArabEmiratesFlag() }
 ){
 }
