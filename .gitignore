@@ -33,3 +33,8 @@ google-services.json
 *.hprof
 
 *.zip
+
+
+# execute server files
+exec/
+runApplication.bat
