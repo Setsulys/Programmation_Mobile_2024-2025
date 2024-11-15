@@ -1,30 +1,21 @@
 package fr.uge.flagcoloring.library
 
 import android.graphics.Bitmap
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.aspectRatio
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.foundation.*
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.grid.*
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.graphics.*
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import kotlinx.coroutines.*
+
+
+val COUNTRY_SERVER ="http://localhost:8081/";
 
 @Composable
 fun CountryGallery(countries: List<Country>) {
@@ -43,28 +34,37 @@ fun CountryGallery(countries: List<Country>) {
 @Composable
 fun CountryCard(country: Country) {
     Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .aspectRatio(1f),
+        modifier = Modifier.fillMaxWidth().aspectRatio(1f),
         elevation = CardDefaults.elevatedCardElevation(4.dp)
     ) {
         Box(
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier.fillMaxSize().weight(1f)
         ) {
-            Text(
-                text = country.name,
-                textAlign = TextAlign.Center,
-                modifier = Modifier.width(200.dp),
-                style = MaterialTheme.typography.bodyLarge
-            )
+            Column(
+                modifier = Modifier.fillMaxSize(),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Bottom
+            ){
+                flagDisplayer(country)
+                Text(
+                    text = country.name,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.width(200.dp),
+                    style = MaterialTheme.typography.bodyLarge
+
+                )
+            }
         }
     }
 }
 
 @Composable
 fun CountryGalleryRoot(){
-    val countries= loadCountries("http://localhost:8081/countries.json")
-    CountryGallery(countries = countries)
+    var countries by remember { mutableStateOf(listOf<Country>())  }
+    LaunchedEffect(true) {
+        countries = loadCountries(COUNTRY_SERVER + "countries.json")
+    }
+    CountryGallery(countries)
 }
 
 
@@ -72,5 +72,26 @@ fun CountryGalleryRoot(){
 
 @Composable
 fun flagDisplayer(country: Country, modifier: Modifier = Modifier){
+    var bitmap by remember { mutableStateOf<Bitmap?>(null) }
 
+    LaunchedEffect(country.code) {
+        bitmap = withContext(Dispatchers.IO) {
+            loadBitmap(COUNTRY_SERVER +"flags/${country.code}.png")
+        }
+    }
+
+    if (bitmap != null) {
+        Image(
+            bitmap = bitmap!!.asImageBitmap(),
+            contentDescription = "${country.name} flag",
+            modifier = modifier.size(128.dp)
+        )
+    } else {
+        Box(
+            modifier = modifier.size(128.dp).background(Color.LightGray),
+            contentAlignment = Alignment.Center
+        ) {
+            Text("Loading...", fontSize = 12.sp, color = Color.DarkGray)
+        }
+    }
 }
