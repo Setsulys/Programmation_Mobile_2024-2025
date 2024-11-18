@@ -34,7 +34,7 @@ google-services.json
 
 *.zip
 
-
+countriesandflags/
 # execute server files
 exec/
 runApplication.bat

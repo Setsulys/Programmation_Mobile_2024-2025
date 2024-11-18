@@ -1,6 +1,7 @@
 package fr.uge.flagcoloring.library
 
 import android.graphics.Bitmap
+import android.util.Log
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.*
@@ -10,6 +11,7 @@ import androidx.compose.ui.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.*
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.toLowerCase
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.*
@@ -76,7 +78,8 @@ fun flagDisplayer(country: Country, modifier: Modifier = Modifier){
 
     LaunchedEffect(country.code) {
         bitmap = withContext(Dispatchers.IO) {
-            loadBitmap(COUNTRY_SERVER +"flags/${country.code}.png")
+            Log.i("TAg","value is"+country.code)
+            loadBitmap(COUNTRY_SERVER +"flags/${country.code.lowercase()}.png")
         }
     }
 
